@@ -135,6 +135,44 @@ IRSB {
  project.factory.path()
 ```
 
+# Show registers from state
+```
+>>> for register in p.arch.registers:
+        reg = eval("s.regs."+register)
+        print "%s -> %s -> %s" % (register, reg, s.se.any_int(reg))
+        
+...
+        ip -> <BV64 0x4000050> -> 67108944
+        rip -> <BV64 0x4000050> -> 67108944
+        rdx -> <BV64 0x0> -> 0
+        fs -> <BV64 0x3010000> -> 50397184
+        fpround -> <BV64 0x0> -> 0
+        rax -> <BV64 0x1c> -> 28
+        r13 -> <BV64 BVS('reg_78_0_64', None, None, None, False)> -> 0
+        rcx -> <BV64 BVS('reg_18_1_64', None, None, None, False)> -> 0
+        pc -> <BV64 0x4000050> -> 67108944
+        cc_op -> <BV64 BVS('reg_90_2_64', None, None, None, False)> -> 0
+        sseround -> <BV64 0x0> -> 0
+        r14 -> <BV64 BVS('reg_80_3_64', None, None, None, False)> -> 0
+        r15 -> <BV64 BVS('reg_88_4_64', None, None, None, False)> -> 0
+        r12 -> <BV64 BVS('reg_70_5_64', None, None, None, False)> -> 0
+        rsi -> <BV64 BVS('reg_40_6_64', None, None, None, False)> -> 0
+        r10 -> <BV64 BVS('reg_60_7_64', None, None, None, False)> -> 0
+        r11 -> <BV64 BVS('reg_68_8_64', None, None, None, False)> -> 0
+        cc_ndep -> <BV64 BVS('reg_a8_9_64', None, None, None, False)> -> 0
+        bp -> <BV64 BVS('reg_38_10_64', None, None, None, False)> -> 0
+        rsp -> <BV64 0x7fffffffffeffd8> -> 576460752303357912
+        d -> <BV64 0x1> -> 1
+        rbx -> <BV64 BVS('reg_28_11_64', None, None, None, False)> -> 0
+        sp -> <BV64 0x7fffffffffeffd8> -> 576460752303357912
+        r8 -> <BV64 BVS('reg_50_12_64', None, None, None, False)> -> 0
+        r9 -> <BV64 BVS('reg_58_13_64', None, None, None, False)> -> 0
+        rbp -> <BV64 BVS('reg_38_10_64', None, None, None, False)> -> 0
+        cc_dep2 -> <BV64 BVS('reg_a0_14_64', None, None, None, False)> -> 0
+        cc_dep1 -> <BV64 BVS('reg_98_15_64', None, None, None, False)> -> 0
+        rdi -> <BV64 BVS('reg_48_16_64', None, None, None, False)> -> 0
+```
+
 # Graphing
 
 ```
