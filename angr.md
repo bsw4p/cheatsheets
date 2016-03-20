@@ -137,9 +137,11 @@ IRSB {
 
 # Show registers from state
 ```
->>> for register in p.arch.registers:
-        reg = eval("s.regs."+register)
-        print "%s -> %s -> %s" % (register, reg, s.se.any_int(reg))
+>>> state = project.full_init_state()
+
+>>> for register in project.arch.registers:
+        reg = eval("state.regs."+register)
+        print "%s -> %s -> %s" % (register, reg, state.se.any_int(reg))
         
 ...
         ip -> <BV64 0x4000050> -> 67108944
